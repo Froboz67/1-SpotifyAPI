@@ -54,7 +54,8 @@ public class SpotifyService {
     }
 
     public Album getAlbum(String albumName) {
-        // albumName is the base62 id for the album itself
+        // albumName is the base62 id for the album itselfcd vue
+        
         try {
             GetAlbumRequest getAlbumRequest = spotifyApi.getAlbum(albumName).build();
             System.out.println("we are in here");
