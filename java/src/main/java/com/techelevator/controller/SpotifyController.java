@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import se.michaelthelin.spotify.model_objects.specification.Album;
+import se.michaelthelin.spotify.model_objects.specification.AlbumSimplified;
 import se.michaelthelin.spotify.model_objects.specification.Artist;
+import se.michaelthelin.spotify.model_objects.specification.Paging;
 
 import java.security.Principal;
 
@@ -36,8 +38,12 @@ public class SpotifyController {
         User user = userDao.getUserByUsername(principal.getName());
         artistDao.saveArtist(artist,  user.getId());
     }
-    @GetMapping("/album")
+    @GetMapping("/album/{albumName}")
     public Album getAlbum(@PathVariable String albumName) {
         return service.getAlbum(albumName);
+    }
+    @GetMapping("/search{q}")
+    public Paging<AlbumSimplified> searchAlbum(@PathVariable String q) {
+        return service.searchAlbum(q);
     }
 }

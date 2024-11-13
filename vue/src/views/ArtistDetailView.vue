@@ -27,6 +27,12 @@ export default {
       let name = this.$store.state.artist.name;
       let id = this.$store.state.artist.id;
       let followers = this.$store.state.artist.followers;
+      if (
+        this.$store.state.artist.images &&
+        this.$store.state.artist.images.length > 1
+      ) {
+        let image = this.$store.state.artist.images[1].url;
+      }
       let artistObj = {
         name,
         id,

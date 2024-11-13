@@ -7,10 +7,12 @@ import se.michaelthelin.spotify.SpotifyApi;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import se.michaelthelin.spotify.model_objects.credentials.ClientCredentials;
 import se.michaelthelin.spotify.model_objects.specification.Album;
+import se.michaelthelin.spotify.model_objects.specification.AlbumSimplified;
 import se.michaelthelin.spotify.model_objects.specification.Artist;
 import se.michaelthelin.spotify.model_objects.specification.Paging;
 import se.michaelthelin.spotify.requests.authorization.client_credentials.ClientCredentialsRequest;
 import se.michaelthelin.spotify.requests.data.albums.GetAlbumRequest;
+import se.michaelthelin.spotify.requests.data.search.simplified.SearchAlbumsRequest;
 import se.michaelthelin.spotify.requests.data.search.simplified.SearchArtistsRequest;
 
 import java.io.IOException;
@@ -52,10 +54,22 @@ public class SpotifyService {
     }
 
     public Album getAlbum(String albumName) {
+        // albumName is the base62 id for the album itself
         try {
             GetAlbumRequest getAlbumRequest = spotifyApi.getAlbum(albumName).build();
             System.out.println("we are in here");
             return getAlbumRequest.execute();
+        } catch (IOException | SpotifyWebApiException | ParseException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return null;
+    }
+    public Paging<AlbumSimplified> searchAlbum(String q) {
+        try {
+            SearchAlbumsRequest searchAlbumsRequest = spotifyApi.searchAlbums(q).build();
+            System.out.println("search query is: " + q);
+            System.out.println("we are in here for real this time");
+            return searchAlbumsRequest.execute();
         } catch (IOException | SpotifyWebApiException | ParseException e) {
             System.out.println("Error: " + e.getMessage());
         }

@@ -27,6 +27,10 @@ export function createStore(currentToken, currentUser) {
       },
       SET_ARTIST(state, artist) {
         state.artist = artist;
+      },
+      SET_ALBUM(state, album) {
+        state.album = album;
+        console.log("store object", state.album);
       }
     },
   });
