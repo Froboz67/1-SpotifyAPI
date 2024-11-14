@@ -1,11 +1,11 @@
 <template>
   <div>
-    <label for="artistName">Name of Artist </label>
+    <label for="artistName">Search by Artist or Band </label>
     <input type="text" v-model="artistName" @keyup.enter="getArtist" />
     <button @click="getArtist">Get Information</button>
   </div>
   <div>
-    <label for="q">Search Albums </label>
+    <label for="q">Search for an Album </label>
     <input type="text" v-model="q" @keyup.enter="searchAlbum" />
     <button @click="searchAlbum">Get Information</button>
   </div>
@@ -81,4 +81,12 @@ export default {
 </script>
 
 <style scoped>
+div {
+  margin: 2rem;
+}
+input {
+  background-color: silver;
+  color: black;
+  margin: 1rem;
+}
 </style>
