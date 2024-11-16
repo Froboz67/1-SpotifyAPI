@@ -26,12 +26,15 @@
   font-family: "Host Grotesk", Arial, Helvetica, sans-serif;
   color: white;
 }
-#nav,
-#text {
+#nav {
   margin: 1rem;
 }
+
 #text {
   color: rgb(0, 180, 54);
-  font-size: 1.5rem;
+  /* the first parameter is the min font size
+  the second param is the responsive size that scales????
+  third param is the max font size */
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 </style>

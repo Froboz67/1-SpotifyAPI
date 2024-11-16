@@ -1,10 +1,10 @@
 <template>
   <!-- <div> -->
   <div class="header-container">
-    <h1>Album Detail</h1>
-    <h2>{{ $store.state.album.name }}</h2>
-    <h3>Released - {{ this.releaseDate }}</h3>
-    <h3>Record Label - {{ $store.state.album.label }}</h3>
+    <h1 id="header">Album Detail</h1>
+    <h2 id="album-title">{{ $store.state.album.name }}</h2>
+    <h3 id="album-stats">Released - {{ this.releaseDate }}</h3>
+    <h3 id="album-stats">Record Label - {{ $store.state.album.label }}</h3>
   </div>
   <div class="grid-container">
     <div class="box box1">
@@ -83,6 +83,20 @@ export default {
 .header-container {
   margin-top: 2rem;
 }
+#header {
+  /*the middle param controls the responsive size of the text! 
+  the left param is the smallest size it will be and the right
+  is the largest it will be */
+  font-size: clamp(1rem, 5vw, 3rem);
+  color: rgb(0, 180, 54);
+}
+#album-title {
+  font-size: clamp(1rem, 5vw, 3rem);
+}
+#album-stats {
+  font-size: clamp(0.5rem, 3.5vw, 2rem);
+}
+
 .grid-container {
   display: grid;
   max-width: 1024px;
@@ -94,6 +108,7 @@ export default {
 .box {
   border: solid 0.4rem rgb(0, 180, 54);
   border-radius: 3rem;
+  margin: 0.25rem;
 }
 
 .box1 {
@@ -130,28 +145,36 @@ img {
   margin: 0.5rem;
 }
 
-/* these media queries don't really accomplish
-what I'm looking for, but I'm good for now. I will come 
-back and visit this after I learn more */
-
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .grid-container {
     display: grid;
     grid-template-columns: 1fr;
     max-width: 506px;
   }
-
-  @media (max-width: 506px) {
-    .box1,
-    .box2 {
-      padding: 0.5rem;
-    }
+}
+@media (max-width: 506px) {
+  .box {
+    padding: 0.5rem;
   }
-  @media (max-width: 350px) {
-    .box1,
-    .box2 {
-      padding: 0.25rem;
-    }
+  .box2 {
+    padding: 2rem;
+  }
+  img {
+    max-width: 90%;
+    height: auto;
+    margin: 0.5rem;
+  }
+}
+@media (max-width: 350px) {
+  .box {
+    padding: 0.5rem;
+  }
+  .box2 {
+    padding: 2rem;
+  }
+  img {
+    max-width: 80%;
+    height: auto;
   }
 }
 </style>

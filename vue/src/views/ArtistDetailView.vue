@@ -78,8 +78,7 @@ export default {
 .box {
   border: solid 0.4rem rgb(0, 180, 54);
   border-radius: 3rem;
-  width: 100%;
-  box-sizing: border-box;
+  margin: 0.25rem;
 }
 
 .box1 {
@@ -101,27 +100,36 @@ img {
   margin: 0.5rem;
 }
 
-/* these media queries don't really accomplish
-what I'm looking for, but I'm good for now. I will come 
-back and visit this after I learn more */
-
 @media (max-width: 1000px) {
   .grid-container {
     display: grid;
     grid-template-columns: 1fr;
     max-width: 506px;
   }
-  @media (max-width: 506px) {
-    .box1,
-    .box2 {
-      padding: 0.5rem;
-    }
+}
+@media (max-width: 506px) {
+  .box {
+    padding: 0.5rem;
   }
-  @media (max-width: 350px) {
-    .box1,
-    .box2 {
-      padding: 0.25rem;
-    }
+  .box2 {
+    padding: 2rem;
+  }
+  img {
+    max-width: 90%;
+    height: auto;
+    margin: 0.5rem;
+  }
+}
+@media (max-width: 350px) {
+  .box {
+    padding: 0.25rem;
+  }
+  .box2 {
+    padding: 2rem;
+  }
+  img {
+    max-width: 80%;
+    height: auto;
   }
 }
 </style>
