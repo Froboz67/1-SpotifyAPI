@@ -33,7 +33,7 @@
 #text {
   color: rgb(0, 180, 54);
   /* the first parameter is the min font size
-  the second param is the responsive size that scales????
+  the second param is the responsive size for dynamic text based on screen size 
   third param is the max font size */
   font-size: clamp(1rem, 2vw, 2rem);
 }
